@@ -7,8 +7,7 @@
 FROM ubuntu:20.10 AS base
 LABEL maintainer="a"
 
-RUN --mount=type=cache,target=/var/cache/apt \
-    apt-get update
+RUN apt-get update
 RUN apt-get install -y curl nginx libopenblas-dev libmagic1 libboost-all-dev libxrender-dev liblapack-dev
 RUN rm -rf /var/lib/apt/lists/*
 
