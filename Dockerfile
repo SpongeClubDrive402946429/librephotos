@@ -23,8 +23,7 @@ RUN /miniconda/bin/conda clean -t
 
 # Build and install dlib
 FROM conda as dlib
-RUN --mount=type=cache,target=/var/cache/apt \
-    apt-get update
+RUN apt-get update
 #libopenblas-dev libmagic1 libxrender-dev liblapack-dev
 RUN apt-get install -y git bzip2 cmake build-essential libsm6 libglib2.0-0 libgl1-mesa-glx --no-install-recommends
 RUN git clone -c http.sslverify=false https://github.com/davisking/dlib.git
